@@ -110,8 +110,9 @@ z = zeros(6,length(xcl));
 z(:,1) = z0;
 u_opt = zeros(2,length(xcl));
 s_int = 5e-2;
+%%
 
-for i = 1:length(xcl)-N
+for i = 5:length(xcl)-N
     xtr = xcl(i:N+i-1);
     ytr = ycl(i:N+i-1);
     % xbin = xin(i:N+i-1);
