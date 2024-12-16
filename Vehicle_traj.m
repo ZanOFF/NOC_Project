@@ -4,7 +4,7 @@ function [z] = Vehicle_traj(x,Ss,N,th1,th2, z0, xtr, ytr, xin, yin, xout, yout)
 % plots of the relevant quantities
     u = x;
         
-    s_int = Ss/5;
+    s_int = 5e-2;
     
     z = zeros(6,N);
     z(:,1) = z0;
@@ -25,7 +25,7 @@ function [z] = Vehicle_traj(x,Ss,N,th1,th2, z0, xtr, ytr, xin, yin, xout, yout)
     s = 0:N-1;
     figure(1)
     subplot(2,3,1), plot(xstar,ystar, xin,yin, xout,yout, xtr,ytr),grid on
-    %legend('traj','inner','outer','ref')
+    legend('traj','inner','outer','ref')
     xlabel('X (m)'),ylabel('Y (m)')
     axis equal
     subplot(2,3,2), plot(s,z(3,:)),grid on

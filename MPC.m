@@ -33,14 +33,12 @@ load('Out_border.mat');
 clear coordinates
 
 % now the sample point of the trajectory have to have a prescribed distance
-Ss = 0.5;                      % [m] - distance required btw samples
-% for some reason works only for Ss=0.5
+Ss = 5e-1;                      % [m] - distance required btw samples
 toll = 1e-3;                    % allowed tollerance for the distance
-%[xc, yc, dc] = traj_dist(xcl,ycl,Ss,toll);
-%[xin, yin, din] = traj_dist(xin,yin,Ss,toll);
-%[xout, yout, dout] = traj_dist(xout,yout,Ss,toll);
-[xc,yc,xin,yin,xout,yout]=traj_dist_new(xcl,ycl,xin,yin,xout,yout,Ss, 'y', toll);
-%[xc,yc,xin,yin,xout,yout] = discretizer(xc,yc,xin,yin,xout,yout,2, Ss);
+[xc, yc, dc] = traj_dist(xcl,ycl,Ss,toll);
+[xin, yin, din] = traj_dist(xin,yin,Ss,toll);
+[xout, yout, dout] = traj_dist(xout,yout,Ss,toll);
+[xc,yc,xin,yin,xout,yout] = discretizer(xc,yc,xin,yin,xout,yout,2, Ss);
 Send = length(xc);
 % figure
 % plot(dc),hold on,plot(dbin),hold on, plot(dbout)
@@ -66,7 +64,7 @@ theta = [chi;k];                 % model parameter of the ideal trajectory
 [n_min_tot, n_max_tot, xcl, ycl] = bound_gen(xin, yin, xout, yout, xc, yc);
 
 %% Finite Horizon Optimal Control Problem
-N = 80;                    % prediction horizon
+N = 40;                    % prediction horizon
 s0 = 3;                     % fixed instants
 % linear constraints
 % x is u during all the prediction horizon
@@ -100,7 +98,7 @@ myoptions.tolgrad    	=	1e-8;
 myoptions.ls_beta       =	0.2;
 myoptions.ls_c          =	0.1;
 myoptions.ls_nitermax   =	1e2;
-myoptions.nitermax      =	15;
+myoptions.nitermax      =	25;
 myoptions.tolfun        =   1e-5;
 myoptions.xsequence     =	'on';
 
