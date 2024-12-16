@@ -28,9 +28,10 @@ title('equal')
 % [xc, yc, dc, cc, itc] = traj_dist(xcl,ycl,Ts,toll);
 % [xin, yin, din, cin, itin] = traj_dist(xin,yin,Ts,toll);
 % [xout, yout, dout, cout, itout] = traj_dist(xout,yout,Ts,toll);
-[xc, yc, dc] = traj_dist(xcl,ycl,Ts,toll);
-[xin, yin, din] = traj_dist(xin,yin,Ts,toll);
-[xout, yout, dout] = traj_dist(xout,yout,Ts,toll);
+%[xc, yc, dc] = traj_dist(xcl,ycl,Ts,toll);
+%[xin, yin, din] = traj_dist(xin,yin,Ts,toll);
+%[xout, yout, dout] = traj_dist(xout,yout,Ts,toll);
+[xc,yc,xin,yin,xout,yout]=traj_dist_new(xcl,ycl,xin,yin,xout,yout,Ts, 'n', toll);
 
 figure
 plot(xc, yc, '-o')

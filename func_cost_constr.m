@@ -2,7 +2,7 @@ function out = func_cost_constr(x, Ss, N, th1, th2, z0, n_max, n_min)
 
     u = x;
     
-    s_int = 5e-2;
+    s_int = Ss/5;
     
     z = zeros(6, N);
     z(:,1) = z0;
