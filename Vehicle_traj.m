@@ -4,7 +4,7 @@ function [z] = Vehicle_traj(x,Ss,N,th1,th2, z0, xtr, ytr, xin, yin, xout, yout)
 % plots of the relevant quantities
     u = x;
         
-    s_int = Ss/5;
+    s_int = Ss/10;
     
     z = zeros(6,N);
     z(:,1) = z0;

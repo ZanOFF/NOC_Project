@@ -100,7 +100,7 @@ myoptions.tolgrad    	=	1e-8;
 myoptions.ls_beta       =	0.2;
 myoptions.ls_c          =	0.1;
 myoptions.ls_nitermax   =	1e2;
-myoptions.nitermax      =	15;
+myoptions.nitermax      =	10;
 myoptions.tolfun        =   1e-5;
 myoptions.xsequence     =	'on';
 
