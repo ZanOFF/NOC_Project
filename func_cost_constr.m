@@ -31,6 +31,6 @@ function out = func_cost_constr(x, Ss, N, th1, th2, z0, n_max, n_min)
     % wd = 0;
     % Pu = diag([wT,wd]);
     % f = z'*Pz*z;
-    f = z(1,end)^2+z(2,:)*z(2,:)';
+    f = (z(1,end)-z(1,1))^2+z(2,end)*z(2,end)'+10*z(5,end)*z(5,end)';
     out = [f;h];
 end
