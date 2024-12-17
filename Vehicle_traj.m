@@ -4,7 +4,7 @@ function [z] = Vehicle_traj(x,Ss,N,th1,th2, z0, xtr, ytr, xin, yin, xout, yout)
 % plots of the relevant quantities
     u = x;
         
-    s_int = 5e-2;
+    s_int = Ss/12;
     
     z = zeros(6,N);
     z(:,1) = z0;
@@ -24,18 +24,20 @@ function [z] = Vehicle_traj(x,Ss,N,th1,th2, z0, xtr, ytr, xin, yin, xout, yout)
     %% Plot (X,Y) trajectory and constraints
     s = 0:N-1;
     figure(1)
-    subplot(2,3,1), plot(xstar,ystar, xin,yin, xout,yout, xtr,ytr),grid on
-    legend('traj','inner','outer','ref')
+    subplot(2,4,1), plot(xstar,ystar, xin,yin, xout,yout, xtr,ytr),grid on
+    % legend('traj','inner','outer','ref')
     xlabel('X (m)'),ylabel('Y (m)')
     axis equal
-    subplot(2,3,2), plot(s,z(3,:)),grid on
+    subplot(2,4,2), plot(s,z(3,:)),grid on
     xlabel('Space (m)'),ylabel('Longitudinal speed (m/s)')
-    subplot(2,3,3), plot(s,u(N+1:end)),grid on
+    subplot(2,4,3), plot(s,u(N+1:end)),grid on
     xlabel('Space (m)'),ylabel('Front steering angle (rad)')
-    subplot(2,3,4), plot(s,u(1:N)),grid on
+    subplot(2,4,4), plot(s,u(1:N)),grid on
     xlabel('Space (m)'),ylabel('Driving torque (Nm)')
-    subplot(2,3,5), plot(s,z(1,:)),grid on
+    subplot(2,4,5), plot(s,z(1,:)),grid on
     xlabel('Space (m)'),ylabel('Time to get this position (s)')
-    subplot(2,3,6), plot(s,z(2,:)),grid on
+    subplot(2,4,6), plot(s,z(2,:)),grid on
     xlabel('Space (m)'),ylabel('n (m)')
+    subplot(2,4,7), plot(s,z(5,:)),grid on
+    xlabel('Space (m)'),ylabel('eta (m)')
 end

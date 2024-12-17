@@ -131,12 +131,14 @@ for i = 1:length(xcl)-N
     close figure 1
 end
 
+%%
+
 for j=2:N
     u_opt(:,i+j-1)= [xstar(j); xstar(N+j)];
     th2 = theta(:, i+j-2);
     z(:,i+j)= evolution(z(:,i+j-1), Ss, u_opt(:,i+j-1), s_int, th1, th2(:,1));
 end
-for ind = 1:length(xcl)-1
+for ind = 1:length(xcl)
         xstar_tr(ind) = xcl(ind)-z(2,ind)*sin(chi(ind));
         ystar_tr(ind) = ycl(ind)+z(2,ind)*cos(chi(ind));
 end
